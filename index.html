@@ -5,6 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clartéo – Accueil</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* ==== Styles pour les exemples concrets ==== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.example-card {
+  background: var(--panel);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.example-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Tableau avant/après */
+.table-comparison {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.table-comparison table {
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 100px;
+}
+.table-comparison caption {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.table-comparison th,
+.table-comparison td {
+  border: 1px solid #475569;
+  padding: 2px 4px;
+}
+.avant { background: #fca5a520; }
+.apres { background: #bbf7d020; }
+
+/* KPI cards */
+.kpi-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12px;
+}
+.kpi { text-align: center; }
+.kpi-value { font-size: 1.2rem; font-weight: bold; color: #38bdf8; }
+.kpi-label { font-size: 0.85rem; color: var(--muted); }
+
+/* Mini bar chart */
+.bar-chart {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 80px;
+}
+.bar-chart div {
+  flex: 1;
+  background: #38bdf8;
+  border-radius: 3px;
+}
+
+/* Export buttons */
+.export-icons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.export-btn {
+  background: #1e293b;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+</style>
 </head>
 <body>
 <header>
@@ -14,9 +96,8 @@
       <div class="brand__name">Clartéo</div>
     </div>
     <nav class="nav">
-      <a href="index.html">Accueil</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="pricing.html">Tarifs</a>
+      <a href="index.html" aria-current="page">Accueil</a>
+      <a href="solutions.html">Solutions & Tarifs</a>
       <a href="index.html#equipe">Équipe</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -26,37 +107,56 @@
 <section class="hero">
   <div class="container hero-inner">
     <div>
-      <h1>La donnée, sans bruit. Un pack simple + un accompagnement premium.</h1>
-      <p>Excel désordonné, reporting flou ? Clartéo nettoie, synchronise et visualise vos données — avec des humains à vos côtés, du premier appel à l'impact.</p>
-      <div class="ctas">
-        <a class="btn" href="#experience">Voir l'accompagnement</a>
-        <a class="btn btn--ghost" href="solutions.html">Découvrir nos solutions</a>
+      <h1>De la donnée brute à l’action, en moins d’une semaine</h1>
+      <p>Clartéo aide les TPE/PME et collectivités à transformer leurs fichiers Excel désordonnés en tableaux clairs, fiables et prêts à l’emploi, avec un accompagnement humain.</p>
+
+      <div class="price-banner">
+        <span class="old-price">200 €</span>
+        <span class="new-price">97 €</span>
+        <span class="offer-tag">Offre pilote – Phase de test</span>
       </div>
+
+      <div class="ctas">
+        <a class="btn cta-strong" href="solutions.html">Acheter</a>
+        <a class="btn btn--ghost" href="contact.html">Demander une démo</a>
+      </div>
+
+      <p class="sub-proof">Témoignages illustratifs basés sur des situations réelles</p>
     </div>
-    <div class="hero-media"><img src="images/screenshot_dark.svg" alt="Aperçu Clartéo"></div>
+
+    <div class="hero-media">
+      <img src="images/screenshot_dark.svg" alt="Aperçu Clartéo">
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container grid-2">
-    <div>
-      <h2>Le problème</h2>
-      <p class="lead">Fichiers hétérogènes, doublons, dates incohérentes — et des heures perdues à consolider au lieu d’agir.</p>
-      <div class="card">
-        <h3>Conséquences</h3>
-        <ul style="padding-left:18px;margin-top:8px;color:var(--muted)">
-          <li>Ruptures, surstocks et décisions tardives</li>
-          <li>Reporting manuel et erreurs coûteuses</li>
-          <li>Absence de visibilité pour piloter</li>
-        </ul>
-      </div>
+<!-- SECTION FLOW : Problème -> Solution -->
+<section class="section section-flow">
+  <div class="container flow-wrap">
+    <div class="flow-block problem">
+      <div class="flow-kicker">Problème</div>
+      <h2>Fichiers hétérogènes, temps perdu, décisions à l’aveugle</h2>
+      <p class="lead">Doublons, colonnes incohérentes, dates mélangées… et des heures passées à corriger au lieu d’agir.</p>
+      <ul class="bullets">
+        <li>Ruptures/surstocks et retards de reporting</li>
+        <li>Risque d’erreurs coûteuses</li>
+        <li>Peu de visibilité globale</li>
+      </ul>
     </div>
-    <div>
-      <h2>Notre approche</h2>
-      <p class="lead"><strong>Produit digital</strong> prêt à l'emploi + <strong>service d'accompagnement</strong> pour atteindre un résultat fiable, vite.</p>
+
+    <div class="flow-connector" aria-hidden="true">
+      <div class="flow-line"></div>
+      <div class="flow-arrow"></div>
+    </div>
+
+    <div class="flow-block solution">
+      <div class="flow-kicker ok">Solution</div>
+      <h2>Clartéo standardise et visualise vos données en moins d’une semaine</h2>
+      <p class="lead"><strong>Pack digital</strong> + <strong>accompagnement humain</strong> → un tableau clair, actionnable, prêt pour vos décisions.</p>
+
       <div class="features">
-        <div class="feature"><img src="images/icon_clean.svg" alt=""><h4>Clean</h4><p>Dates, doublons, formats : normalisé automatiquement.</p></div>
-        <div class="feature"><img src="images/icon_sync.svg" alt=""><h4>Sync</h4><p>Import/Export CSV, Excel, Sheets. Structure standard.</p></div>
+        <div class="feature"><img src="images/icon_clean.svg" alt=""><h4>Clean</h4><p>Dates, doublons et formats normalisés automatiquement.</p></div>
+        <div class="feature"><img src="images/icon_sync.svg" alt=""><h4>Sync</h4><p>Import/Export CSV, Excel, Sheets — structure standard.</p></div>
         <div class="feature"><img src="images/icon_viz.svg" alt=""><h4>Visualize</h4><p>KPI & graphes immédiatement lisibles.</p></div>
         <div class="feature"><img src="images/icon_export.svg" alt=""><h4>Export</h4><p>Données propres prêtes pour vos outils.</p></div>
       </div>
@@ -64,32 +164,78 @@
   </div>
 </section>
 
-<!-- EXPÉRIENCE intégrée dans la Home -->
+<!-- EXPÉRIENCE -->
 <div class="experience-wrap" id="experience">
   <section class="experience container">
     <h3>L’Expérience Clartéo</h3>
-    <p class="lead">Des personnes réelles, un support réel, des résultats réels. 5 étapes, un seul but : l’impact.</p>
-    <div class="timeline" aria-label="Processus en 5 étapes">
+    <p class="lead">Livraison initiale en moins d’une semaine, puis suivi et optimisation jusqu’à 60 jours si besoin.</p>
+    <div class="timeline">
       <div class="step"><img src="images/icon_call.svg" alt=""><div class="t">Intro & Discovery</div><div class="d">Jour 0</div></div>
-      <div class="arrow" aria-hidden="true"></div>
+      <div class="arrow"></div>
       <div class="step"><img src="images/icon_demo.svg" alt=""><div class="t">Démo personnalisée</div><div class="d">Jour 2</div></div>
-      <div class="arrow" aria-hidden="true"></div>
+      <div class="arrow"></div>
       <div class="step"><img src="images/icon_kickoff.svg" alt=""><div class="t">Kick-off pilote</div><div class="d">Jour 5</div></div>
-      <div class="arrow" aria-hidden="true"></div>
+      <div class="arrow"></div>
       <div class="step"><img src="images/icon_work.svg" alt=""><div class="t">Working Sessions</div><div class="d">J+7 → J+28</div></div>
-      <div class="arrow" aria-hidden="true"></div>
+      <div class="arrow"></div>
       <div class="step"><img src="images/icon_impact.svg" alt=""><div class="t">Impact & Signature</div><div class="d">J+60</div></div>
     </div>
   </section>
 </div>
 
+<!-- EXEMPLES CONCRETS -->
 <section class="section">
   <div class="container">
-    <h2>À quoi ça ressemble ?</h2>
-    <p class="lead">Un modèle Excel clair et un dashboard compréhensible. Remplacez ces placeholders par vos captures.</p>
-    <div class="screens">
-      <img src="images/screenshot_dark.svg" alt="Capture 1">
-      <img src="images/screenshot_dark.svg" alt="Capture 2">
+    <h2>Exemples concrets</h2>
+    <p class="lead">Du fichier brut au tableau clair — voici trois transformations typiques réalisées avec Clartéo.</p>
+
+    <div class="grid-3">
+      <!-- Exemple 1 -->
+      <div class="example-card">
+        <h4>Nettoyage des données</h4>
+        <div class="table-comparison">
+          <table class="avant">
+            <caption>Avant</caption>
+            <tr><th>Date</th><th>Produit</th><th>Qté</th></tr>
+            <tr><td>12/8/24</td><td>Article A</td><td>5</td></tr>
+            <tr><td>08-12-2024</td><td>Article A</td><td>5</td></tr>
+            <tr><td>2024/08/12</td><td>Article B</td><td></td></tr>
+          </table>
+          <table class="apres">
+            <caption>Après</caption>
+            <tr><th>Date</th><th>Produit</th><th>Qté</th></tr>
+            <tr><td>12/08/2024</td><td>Article A</td><td>5</td></tr>
+            <tr><td>12/08/2024</td><td>Article B</td><td>3</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Exemple 2 -->
+      <div class="example-card">
+        <h4>Dashboard KPI</h4>
+        <div class="kpi-cards">
+          <div class="kpi"><div class="kpi-value">+15%</div><div class="kpi-label">CA mensuel</div></div>
+          <div class="kpi"><div class="kpi-value">248</div><div class="kpi-label">Commandes</div></div>
+          <div class="kpi"><div class="kpi-value">0.8%</div><div class="kpi-label">Taux d'erreur</div></div>
+        </div>
+        <div class="bar-chart">
+          <div style="height:60%"></div>
+          <div style="height:80%"></div>
+          <div style="height:40%"></div>
+          <div style="height:90%"></div>
+        </div>
+      </div>
+
+      <!-- Exemple 3 -->
+      <div class="example-card">
+        <h4>Export multi-formats</h4>
+        <div class="export-icons">
+          <div class="export-btn">CSV</div>
+          <div class="export-btn">Excel</div>
+          <div class="export-btn">Sheets</div>
+        </div>
+        <a href="contact.html" class="btn cta-strong" style="margin-top:10px">Exporter</a>
+      </div>
     </div>
   </div>
 </section>
@@ -98,11 +244,11 @@
 <section class="section" id="equipe">
   <div class="container">
     <h2>Équipe</h2>
-    <p class="lead">Deux co‑fondateurs complémentaires, un même objectif : rendre vos données utiles.</p>
+    <p class="lead">Deux co-fondateurs complémentaires, un même objectif : rendre vos données utiles.</p>
     <div class="team">
       <div class="member">
-        <img src="images/sifou.png" alt="Photo Seif‑Eddine">
-        <h4>Seif‑Eddine</h4>
+        <img src="images/sifou.png" alt="Photo Seif-Eddine">
+        <h4>Seif-Eddine</h4>
         <p>CEO/COO – Stratégie, clients, opérations (basé en Algérie)</p>
       </div>
       <div class="member">
@@ -114,7 +260,7 @@
   </div>
 </section>
 
-<!-- Témoignages / Ils nous font confiance -->
+<!-- Témoignages -->
 <section class="testimonials">
   <div class="container">
     <h3>Ils nous font confiance</h3>
@@ -123,30 +269,21 @@
         <p>"Plateforme claire, gains de temps visibles dès la première semaine."</p>
         <div class="t-author">
           <img src="images/avatar1.svg" alt="">
-          <div>
-            <div class="t-name">Responsable Logistique</div>
-            <div class="t-role">PME retail</div>
-          </div>
+          <div><div class="t-name">Responsable Logistique</div><div class="t-role">PME retail</div></div>
         </div>
       </div>
       <div class="t-card">
         <p>"On a éliminé les erreurs de saisie et accéléré le reporting mensuel."</p>
         <div class="t-author">
           <img src="images/avatar2.svg" alt="">
-          <div>
-            <div class="t-name">Directeur Financier</div>
-            <div class="t-role">TPE services</div>
-          </div>
+          <div><div class="t-name">Directeur Financier</div><div class="t-role">TPE services</div></div>
         </div>
       </div>
       <div class="t-card">
         <p>"Accompagnement humain, très réactif : on se sent épaulés."</p>
         <div class="t-author">
           <img src="images/avatar1.svg" alt="">
-          <div>
-            <div class="t-name">Chef de projet</div>
-            <div class="t-role">Collectivité locale</div>
-          </div>
+          <div><div class="t-name">Chef de projet</div><div class="t-role">Collectivité locale</div></div>
         </div>
       </div>
     </div>

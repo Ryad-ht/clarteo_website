@@ -1,0 +1,62 @@
+/* ====== AJOUTS : rollovers + flow (problème -> solution) ====== */
+
+/* Rollover pour tous les boutons */
+.btn{
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, background-color .15s ease, border-color .15s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  filter: brightness(.98);
+}
+.btn:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+.btn:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.btn.btn--ghost:hover{
+  background:#111827;
+  border-color:#334155;
+}
+
+/* Flow vertical : du problème vers la solution */
+.section-flow .flow-wrap{max-width: 980px; margin: 0 auto; position: relative}
+.flow-block{
+  background: var(--panel);
+  border: 1px solid #111827;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 2px 0 0 #0b1220 inset;
+}
+.flow-block + .flow-block{margin-top: 18px}
+.flow-kicker{font-weight:800;letter-spacing:.3px;color:#e5e7eb;opacity:.9;margin-bottom:6px}
+.flow-kicker.ok{color:#86efac}
+.section-flow .bullets{list-style:disc;padding-left:18px;color:var(--muted);margin-top:8px}
+
+/* Connecteur */
+.flow-connector{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  padding: 14px 0;
+}
+.flow-line{
+  width: 3px; height: 46px;
+  background: linear-gradient(180deg, #334155, #38bdf8);
+  border-radius: 3px;
+  opacity: .7;
+}
+.flow-arrow{
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #38bdf8;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.35));
+}
+
+/* Petite animation à l’apparition */
+@media (prefers-reduced-motion: no-preference){
+  .flow-block{transform: translateY(8px); opacity: .96; transition: transform .35s ease, opacity .35s ease}
+  .section-flow .flow-wrap:hover .flow-block{transform: translateY(0); opacity: 1}
+}

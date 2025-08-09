@@ -101,3 +101,26 @@ footer{background:#0b1220;border-top:1px solid #111827;color:#94a3b8;text-align:
   .screens{grid-template-columns:1fr}
   .team{grid-template-columns:1fr}
 }
+.price-banner {
+  margin: 10px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #9ca3af;
+  font-size: 1.2rem;
+}
+.new-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+.offer-tag {
+  background: #1e293b;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+}
