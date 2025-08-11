@@ -1,0 +1,8 @@
+# Forcer HTTPS, y compris derrière un proxy
+RewriteEngine On
+# Ne pas bloquer les challenges Let's Encrypt
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+# Si pas déjà en HTTPS ET pas vu comme https par le proxy
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

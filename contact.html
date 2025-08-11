@@ -18,22 +18,34 @@
       <a href="solutions.html">Solutions</a>
       <a href="pricing.html">Tarifs</a>
       <a href="index.html#equipe">Équipe</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" aria-current="page">Contact</a>
     </nav>
   </div>
 </header>
+
 <section class="section">
   <div class="container">
     <h2>Contact</h2>
-    <p class="lead">Une question, une démo ? Écrivez-nous et on vous répond sous 24h ouvrées.</p>
-    <form action="mailto:hadjtahar.ryad@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Votre nom" required style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb">
-      <input type="email" name="email" placeholder="Votre email" required style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb">
-      <textarea name="message" rows="5" placeholder="Votre message" style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb"></textarea>
+    <p class="lead">Une question, une démo ? Écrivez‑nous et on vous répond sous 24–48h ouvrées.</p>
+
+    <!-- SEULE CHOSE CHANGÉE : action, method et le champ caché anti-spam -->
+    <form action="contact.php" method="post">
+      <input type="text" name="name" placeholder="Votre nom" required
+             style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb">
+      <input type="email" name="email" placeholder="Votre email" required
+             style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb">
+      <textarea name="message" rows="5" placeholder="Votre message" required
+                style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb"></textarea>
+
+      <!-- honeypot anti-spam (doit rester vide) -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off"
+             style="position:absolute;left:-9999px;opacity:0">
+
       <button class="btn" type="submit">Envoyer</button>
     </form>
   </div>
 </section>
+
 <footer>© 2025 Clartéo – Mentions légales | Politique de confidentialité</footer>
 </body>
 </html>
