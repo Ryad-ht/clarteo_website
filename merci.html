@@ -1,36 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Merci – Clartéo</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Merci – Clarteo</title>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
 <header>
-  <div class="container header-inner">
-    <div class="brand">
-      <img src="images/fr_flag.svg" alt="FR">
-      <div class="brand__name">Clartéo</div>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Accueil</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="pricing.html">Tarifs</a>
-      <a href="index.html#equipe">Équipe</a>
-      <a href="contact.html" aria-current="page">Contact</a>
-    </nav>
-  </div>
+<div class="container header-inner">
+<div class="brand">
+<img alt="FR" src="images/fr_flag.svg"/>
+<div class="brand__name">Clarteo</div>
+</div><button aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu" class="nav-toggle"><span></span><span></span><span></span></button>
+<nav class="nav" id="site-nav">
+<a href="index.html">Accueil</a>
+<a href="solutions.html">Solutions</a>
+<a href="pricing.html">Tarifs</a>
+<a href="index.html#equipe">Équipe</a>
+<a aria-current="page" href="contact.html">Contact</a>
+</nav>
+</div>
 </header>
-
 <section class="section">
-  <div class="container" style="max-width:760px;text-align:center">
-    <h2>Merci 🙌</h2>
-    <p class="lead">Votre message a bien été envoyé. Nous revenons vers vous sous 24–48h ouvrées.</p>
-    <a class="btn" href="index.html">Retour à l’accueil</a>
-  </div>
+<div class="container" style="max-width:760px;text-align:center">
+<h2>Merci 🙌</h2>
+<p class="lead">Votre message a bien été envoyé. Nous revenons vers vous sous 24–48h ouvrées.</p>
+<a class="btn" href="index.html">Retour à l’accueil</a>
+</div>
 </section>
-
-<footer>© 2025 Clartéo – Mentions légales | Politique de confidentialité</footer>
-</body>
+<footer>© 2025 Clarteo – Mentions légales | Politique de confidentialité</footer>
+<script>const b=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');if(b&&n){b.addEventListener('click',()=>{const o=n.classList.toggle('is-open');b.setAttribute('aria-expanded',o);});}</script></body>
 </html>

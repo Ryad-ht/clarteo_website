@@ -124,3 +124,239 @@ footer{background:#0b1220;border-top:1px solid #111827;color:#94a3b8;text-align:
   font-size: 0.85rem;
   color: #e5e7eb;
 }
+
+/* ==== MERGE: burger & mobile menu ==== */
+
+/* === Bouton burger amélioré === */
+.nav-toggle {
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  transition: background-color .2s, border-color .2s, transform .2s;
+}
+.nav-toggle span {
+  display:block;
+  width:22px;
+  height:2px;
+  background:#fff;
+  border-radius:2px;
+  transition:transform .3s, opacity .3s;
+}
+.nav-toggle:hover {
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,.3);
+  transform:scale(1.05);
+}
+.nav-toggle:focus-visible { outline:2px solid var(--brand); outline-offset:3px; }
+.nav-toggle[aria-expanded=\"true\"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded=\"true\"] span:nth-child(2) { opacity:0; }
+.nav-toggle[aria-expanded=\"true\"] span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+/* Apparition mobile + menu */
+:root{ --header-h:64px; }
+@media (max-width: 768px){
+  .nav-toggle{display:flex}
+  .nav{
+    position:absolute;left:0;right:0;
+    top:calc(var(--header-h) + 4px);
+    display:none;
+    flex-direction:column;
+    background:#0b1726;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:8px 16px;
+    animation: slideDown .25s ease forwards;
+  }
+  .nav.is-open{display:flex;}
+  .nav a{
+    padding:10px 4px;
+    text-align:center;
+    border-radius:6px;
+    transition:background-color .2s;
+  }
+  .nav a:hover{ background-color:rgba(255,255,255,0.06); }
+}
+@keyframes slideDown { from { opacity:0; transform:translateY(-8px);} to { opacity:1; transform:translateY(0);} }
+
+
+/* ==== MERGE: flow additions ==== */
+/* ====== AJOUTS : rollovers + flow (problème -> solution) ====== */
+
+/* Rollover pour tous les boutons */
+.btn{
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, background-color .15s ease, border-color .15s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  filter: brightness(.98);
+}
+.btn:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+.btn:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.btn.btn--ghost:hover{
+  background:#111827;
+  border-color:#334155;
+}
+
+/* Flow vertical : du problème vers la solution */
+.section-flow .flow-wrap{max-width: 980px; margin: 0 auto; position: relative}
+.flow-block{
+  background: var(--panel);
+  border: 1px solid #111827;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 2px 0 0 #0b1220 inset;
+}
+.flow-block + .flow-block{margin-top: 18px}
+.flow-kicker{font-weight:800;letter-spacing:.3px;color:#e5e7eb;opacity:.9;margin-bottom:6px}
+.flow-kicker.ok{color:#86efac}
+.section-flow .bullets{list-style:disc;padding-left:18px;color:var(--muted);margin-top:8px}
+
+/* Connecteur */
+.flow-connector{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  padding: 14px 0;
+}
+.flow-line{
+  width: 3px; height: 46px;
+  background: linear-gradient(180deg, #334155, #38bdf8);
+  border-radius: 3px;
+  opacity: .7;
+}
+.flow-arrow{
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #38bdf8;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.35));
+}
+
+/* Petite animation à l’apparition */
+@media (prefers-reduced-motion: no-preference){
+  .flow-block{transform: translateY(8px); opacity: .96; transition: transform .35s ease, opacity .35s ease}
+  .section-flow .flow-wrap:hover .flow-block{transform: translateY(0); opacity: 1}
+}
+
+
+/* ==== MERGE: inline examples css ==== */
+
+/* ==== Styles pour les exemples concrets ==== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.example-card {
+  background: var(--panel);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.example-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Tableau avant/après */
+.table-comparison {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.table-comparison table {
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 100px;
+}
+.table-comparison caption {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.table-comparison th,
+.table-comparison td {
+  border: 1px solid #475569;
+  padding: 2px 4px;
+}
+.avant { background: #fca5a520; }
+.apres { background: #bbf7d020; }
+
+/* KPI cards */
+.kpi-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12px;
+}
+.kpi { text-align: center; }
+.kpi-value { font-size: 1.2rem; font-weight: bold; color: #38bdf8; }
+.kpi-label { font-size: 0.85rem; color: var(--muted); }
+
+/* Mini bar chart */
+.bar-chart {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 80px;
+}
+.bar-chart div {
+  flex: 1;
+  background: #38bdf8;
+  border-radius: 3px;
+}
+
+/* Export buttons */
+.export-icons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.export-btn {
+  background: #1e293b;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+
+
+/* ====== PATCH v2 ====== */
+
+/* ==== OVERRIDES: spacing to avoid text touching edges ==== */
+.container { padding-left: 16px; padding-right: 16px; }
+@media (min-width: 640px){ .container { padding-left: 24px; padding-right: 24px; } }
+@media (min-width: 1024px){ .container { padding-left: 40px; padding-right: 40px; } }
+
+/* Ensure hero uses the same container padding and adds a bit more breathing */
+.hero { padding-bottom: clamp(24px, 6vh, 56px); }
+.hero .container { padding-left: inherit; padding-right: inherit; }
+
+/* ==== OVERRIDES: only animate the Solution block in flow ==== */
+@media (prefers-reduced-motion: no-preference){
+  .flow-block { transform: none; opacity: 1; }
+  .flow-block.solution { transform: translateY(8px); opacity: .96; transition: transform .35s ease, opacity .35s ease; }
+  .section-flow .flow-wrap:hover .flow-block.solution { transform: translateY(0); opacity: 1; }
+}
+/* Padding latéral spécifique mobile */
+@media (max-width: 1240px){
+  .mobile-pad {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
