@@ -1,5 +1,13 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(rm:*)"
+    ],
     "defaultMode": "acceptEdits"
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "context7"
+  ]
 }
