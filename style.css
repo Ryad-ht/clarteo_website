@@ -85,7 +85,6 @@ header{background:#0b1220;border-bottom:1px solid #111827;position:sticky;top:0;
 .faq details{background:var(--panel);border:1px solid #111827;border-radius:12px;padding:14px;margin:8px 0}
 .faq summary{cursor:pointer;font-weight:700;color:#e2e8f0}
 
-footer{background:#0b1220;border-top:1px solid #111827;color:#94a3b8;text-align:center;padding:16px;margin-top:40px}
 
 @media (max-width: 1024px){
   .hero-inner{grid-template-columns:1fr}
@@ -353,10 +352,122 @@ footer{background:#0b1220;border-top:1px solid #111827;color:#94a3b8;text-align:
   .flow-block.solution { transform: translateY(8px); opacity: .96; transition: transform .35s ease, opacity .35s ease; }
   .section-flow .flow-wrap:hover .flow-block.solution { transform: translateY(0); opacity: 1; }
 }
-/* Padding latéral spécifique mobile */
+/* Improved mobile responsiveness */
 @media (max-width: 1240px){
   .mobile-pad {
     padding-left: 18px !important;
     padding-right: 18px !important;
   }
+}
+
+/* Better mobile typography */
+@media (max-width: 640px){
+  .hero h1 { font-size: 2.2rem; line-height: 1.15; }
+  .section h2 { font-size: 1.8rem; }
+  .hero p { font-size: 1.05rem; }
+  .step { width: 130px; height: 130px; font-size: 0.9rem; }
+  .step img { width: 32px; height: 32px; }
+}
+
+/* Enhanced accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Better footer styling */
+footer {
+  background: #0b1220;
+  border-top: 1px solid #111827;
+  color: #94a3b8;
+  text-align: center;
+  padding: 24px 16px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Enhanced Contact Form Styles */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #e5e7eb;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  background: #0b1220;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-note {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.contact-form .btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
 }

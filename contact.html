@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clartéo – Contact</title>
+<title>Contact - Clartéo | Demande de devis et informations</title>
+<meta name="description" content="Contactez Clartéo pour transformer vos données. Réponse sous 24-48h. Devis gratuit et personnalisé.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,26 +26,46 @@
 <section class="section">
   <div class="container">
     <h2>Contact</h2>
-    <p class="lead">Une question, une démo ? Écrivez‑nous et on vous répond sous 24–48h ouvrées.</p>
+    <p class="lead">Une question, une démo ? Écrivez-nous et nous vous répondons sous 24-48h ouvrées.</p>
 
     <!-- SEULE CHOSE CHANGÉE : action, method et le champ caché anti-spam -->
-    <form action="contact.php" method="post">
-      <input type="text" name="name" placeholder="Votre nom" required
-             style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb">
-      <input type="email" name="email" placeholder="Votre email" required
-             style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb">
-      <textarea name="message" rows="5" placeholder="Votre message" required
-                style="width:100%;padding:12px;margin-bottom:10px;border-radius:10px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb"></textarea>
+    <form action="contact.php" method="post" class="contact-form">
+      <div class="form-group">
+        <label for="name">Nom complet *</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="subject">Sujet</label>
+        <select id="subject" name="subject">
+          <option value="demo">Demande de démo</option>
+          <option value="pack-digital">Pack Digital - 97€</option>
+          <option value="service-complet">Service Complet - Devis</option>
+          <option value="question">Question générale</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou posez votre question..." required></textarea>
+      </div>
 
       <!-- honeypot anti-spam (doit rester vide) -->
-      <input type="text" name="website" tabindex="-1" autocomplete="off"
-             style="position:absolute;left:-9999px;opacity:0">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0">
 
-      <button class="btn" type="submit">Envoyer</button>
+      <button class="btn cta-strong" type="submit">Envoyer ma demande</button>
+      
+      <p class="form-note">* Champs obligatoires. Nous vous répondons sous 24-48h ouvrées.</p>
     </form>
   </div>
 </section>
 
-<footer>© 2025 Clartéo – Mentions légales | Politique de confidentialité</footer>
+<footer>© 2025 Clartéo – <a href="mentions-legales.html">Mentions légales</a> | <a href="politique-confidentialite.html">Politique de confidentialité</a> | <a href="cgv.html">CGV</a></footer>
 </body>
 </html>

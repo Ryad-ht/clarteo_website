@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales - Clartéo</title>
+<meta name="description" content="Mentions légales de Clartéo - Service de transformation et visualisation de données pour TPE, PME et collectivités">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container header-inner mobile-pad">
+    <div class="brand">
+      <img alt="FR" src="images/fr_flag.svg"/>
+      <div class="brand__name">Clartéo</div>
+    </div>
+    <button aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu" class="nav-toggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="index.html">Accueil</a>
+      <a href="solutions.html">Solutions & Tarifs</a>
+      <a href="index.html#equipe">Équipe</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container mobile-pad">
+    <h1>Mentions légales</h1>
+    
+    <h2>Éditeur du site</h2>
+    <p><strong>Clartéo</strong><br>
+    Service de transformation et visualisation de données<br>
+    Contact : <a href="mailto:contact@clarteo.com">contact@clarteo.com</a></p>
+    
+    <h2>Directeur de la publication</h2>
+    <p>Seif-Eddine & Ryad - Co-fondateurs</p>
+    
+    <h2>Hébergement</h2>
+    <p>Ce site est hébergé par un service d'hébergement web professionnel.</p>
+    
+    <h2>Propriété intellectuelle</h2>
+    <p>Le contenu de ce site (textes, images, graphismes, logo, icônes, sons, logiciels) est la propriété exclusive de Clartéo, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.</p>
+    
+    <h2>Protection des données personnelles</h2>
+    <p>Les informations recueillies via le formulaire de contact sont destinées exclusivement à Clartéo pour le traitement de votre demande. Elles ne sont jamais transmises à des tiers.</p>
+    
+    <p>Conformément à la loi "Informatique et libertés" du 6 janvier 1978 modifiée et au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ce droit, contactez-nous à : <a href="mailto:contact@clarteo.com">contact@clarteo.com</a></p>
+    
+    <h2>Cookies</h2>
+    <p>Ce site n'utilise pas de cookies de tracking ou de mesure d'audience.</p>
+    
+    <h2>Responsabilité</h2>
+    <p>Les informations contenues sur ce site sont aussi précises que possible. Toutefois, Clartéo ne pourra être tenue responsable des omissions, inexactitudes et carences dans la mise à jour.</p>
+    
+    <h2>Droit applicable</h2>
+    <p>Le présent site est soumis au droit français. En cas de litige, et après l'échec de toute tentative de recherche d'une solution amiable, les tribunaux français seront seuls compétents.</p>
+  </div>
+</section>
+
+<footer>© 2025 Clartéo – <a href="mentions-legales.html">Mentions légales</a> | <a href="politique-confidentialite.html">Politique de confidentialité</a></footer>
+
+<script>
+const b=document.querySelector('.nav-toggle'),n=document.getElementById('site-nav');
+if(b&&n){
+  b.addEventListener('click',()=>{
+    const o=n.classList.toggle('is-open');
+    b.setAttribute('aria-expanded',o);
+  });
+}
+</script>
+</body>
+</html>
